@@ -1,153 +1,77 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #0b1c2d, #020b14);
-  color: #9fd4ff;
+  background: radial-gradient(circle at top,#0b1c2d,#020b14);
+  font-family: Arial;
+  color:#9fd4ff;
+  margin:0;
 }
 
-/* BANNER */
-.banner img {
-  width: 100%;
-  max-height: 360px;
-  object-fit: cover;
-  display: block;
-}
+.banner img { width:100%; max-height:360px; object-fit:cover; }
 
-/* CONTAINER */
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+  padding:50px;
 }
 
-/* APP CARD */
 .app-card {
-  background: rgba(255,255,255,0.06);
-  border-radius: 18px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 0 35px rgba(0,140,255,0.3);
+  background:rgba(255,255,255,0.06);
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
 }
 
-.app-card img {
-  width: 110px;
-  margin-bottom: 15px;
-}
-
-.app-card h2 {
-  color: #fff;
-}
-
-/* BUTTON */
 .btn {
-  display: block;
-  margin: 10px 0;
-  padding: 14px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  background: linear-gradient(135deg, #008cff, #4fc3ff);
-  color: #000;
-  cursor: pointer;
+  display:block;
+  padding:14px;
+  margin:10px 0;
+  border-radius:30px;
+  background:linear-gradient(135deg,#008cff,#4fc3ff);
+  color:#000;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
 }
 
-.btn.outline {
-  background: transparent;
-  border: 1px solid #4fc3ff;
-  color: #4fc3ff;
+.outline {
+  background:transparent;
+  border:1px solid #4fc3ff;
+  color:#4fc3ff;
 }
 
-/* VIEW PACKAGE - RED */
 .package-btn {
-  background: linear-gradient(135deg, #ff3b3b, #ff7676);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(255,60,60,0.8);
-}
-
-/* PAYMENT */
-.payment {
-  text-align: center;
-  padding: 70px 20px;
+  background:linear-gradient(135deg,#ff3b3b,#ff7676);
+  color:#fff;
 }
 
 .buy-btn {
-  font-size: 18px;
-  box-shadow: 0 0 30px rgba(0,140,255,0.8);
+  font-size:18px;
 }
 
-/* HELP */
-.help {
-  text-align: center;
-  padding: 60px 20px;
-}
+.payment { text-align:center; padding:50px; }
 
-.help-btn {
-  display: block;
-  max-width: 340px;
-  margin: 15px auto;
-  padding: 16px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-}
-
-.whatsapp { background: #25d366; }
-.telegram { background: #0088cc; }
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 13px;
-  color: #7bbcff;
-}
-
-/* MODAL */
 .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
+  position:fixed;
+  inset:0;
+  display:none;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
 }
 
 .modal-box {
-  background: #081a2c;
-  padding: 30px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 360px;
-  text-align: center;
+  background:#081a2c;
+  padding:25px;
+  border-radius:16px;
+  width:90%;
+  max-width:360px;
+  text-align:center;
 }
 
-.modal-box ul {
-  list-style: none;
-  margin: 20px 0;
-}
-
-.modal-box li {
-  padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-/* QR LOCK */
 .no-save {
-  pointer-events: none;
-  user-select: none;
+  pointer-events:none;
+  user-select:none;
 }
 
-.qr-img {
-  width: 220px;
-  margin: 15px 0;
-}
+.qr-img { width:220px; margin:10px; }
+
