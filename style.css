@@ -47,13 +47,13 @@ body {
   color: #fff;
 }
 
-/* BUTTONS */
+/* BUTTON BASE */
 .btn {
   display: block;
   width: 100%;
-  max-width: 320px;
-  margin: 10px auto;
-  padding: 14px;
+  max-width: 340px;
+  margin: 12px auto;
+  padding: 16px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
@@ -61,8 +61,10 @@ body {
   color: #000;
   border: none;
   cursor: pointer;
+  text-align: center;
 }
 
+/* OUTLINE BUTTON */
 .btn.outline {
   background: transparent;
   border: 1px solid #4fc3ff;
@@ -76,41 +78,24 @@ body {
   box-shadow: 0 0 20px rgba(255,60,60,0.8);
 }
 
-/* PAYMENT */
+/* PAYMENT SECTION */
 .payment {
   text-align: center;
   padding: 70px 20px;
   background: rgba(255,255,255,0.03);
 }
 
-.buy-btn {
-  font-size: 18px;
-  box-shadow: 0 0 30px rgba(0,140,255,0.8);
-}
-
-/* HELP (OPTIONAL) */
-.help {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.help-btn {
+/* FORCE SAME SIZE FOR <a> AND <button> */
+.payment a.btn,
+.payment button.btn {
   display: block;
+  width: 100%;
   max-width: 340px;
   margin: 15px auto;
   padding: 16px;
+  font-size: 18px;
   border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-}
-
-.whatsapp {
-  background: #25d366;
-}
-
-.telegram {
-  background: #0088cc;
+  box-shadow: 0 0 30px rgba(0,140,255,0.8);
 }
 
 /* FOOTER */
