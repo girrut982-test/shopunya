@@ -8,74 +8,100 @@
 </head>
 <body>
 
-<!-- BIG BANNER -->
+<!-- BANNER -->
 <section class="banner">
   <img src="KEDAI.png" alt="Shomex Shop Banner">
 </section>
 
 <!-- APPS -->
 <section class="container">
-
   <div class="app-card">
-    <img src="logo.png" alt="KINGTV">
+    <img src="logo.png">
     <h2>KINGTV</h2>
     <p>Live TV, Movies, Sports & More</p>
-    <a href="https://cutt.ly/king100" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/kingtv22" class="btn outline">Download Link 2</a>
+    <a href="#" class="btn" onclick="openPackage()">View Packages</a>
   </div>
 
   <div class="app-card">
-    <img src="logo2.png" alt="SYOKTV">
+    <img src="logo2.png">
     <h2>SYOKTV</h2>
     <p>Live TV, Movies, Sports & More</p>
-    <a href="https://cutt.ly/shosyok" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/syoktv2" class="btn outline">Download Link 2</a>
+    <a href="#" class="btn" onclick="openPackage()">View Packages</a>
   </div>
 
   <div class="app-card">
-    <img src="logo3.png" alt="SYBERTV">
+    <img src="logo3.png">
     <h2>SYBERTV</h2>
     <p>Live Channels, Movies & Sports</p>
-    <a href="https://bit.ly/syber482" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/syber482" class="btn outline">Download Link 2</a>
+    <a href="#" class="btn" onclick="openPackage()">View Packages</a>
   </div>
 
   <div class="app-card">
-    <img src="logo4.png" alt="ODTV">
+    <img src="logo4.png">
     <h2>ODTV</h2>
     <p>Live Channels, Movies & Sports</p>
-    <a href="https://link2u.cc/odtv1" class="btn">Download Link 1</a>
-    <a href="https://link2u.cc/odtv1" class="btn outline">Download Link 2</a>
+    <a href="#" class="btn" onclick="openPackage()">View Packages</a>
   </div>
-
 </section>
 
-<!-- PAYMENT -->
+<!-- PAYMENT METHOD -->
 <section class="payment">
-  <h2>Subscription Payment</h2>
-  <p>Secure & Instant Activation</p>
+  <h2>Payment Method</h2>
 
-  <a href="https://wasep.me/shomexshop" class="btn buy-btn">
-    💳 BELI SEKARANG
-  </a>
+  <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Transfer</a>
+
+  <button class="btn outline" onclick="openQR()">📱 QR Pay (Maybank)</button>
 </section>
 
-<!-- HELPLINE -->
+<!-- HELP -->
 <section class="help">
   <h2>Need Help?</h2>
-
-  <a href="https://wa.me/601159635600" class="help-btn whatsapp">
-    📞 WhatsApp: +6011 5963 5600
-  </a>
-
-  <a href="https://t.me/+pW4H2Dh8JuJkNTk1" class="help-btn telegram">
-    💬 Join Telegram Support Group
-  </a>
+  <a href="https://wa.me/601159635600" class="help-btn whatsapp">📞 WhatsApp</a>
+  <a href="https://t.me/+pW4H2Dh8JuJkNTk1" class="help-btn telegram">💬 Telegram</a>
 </section>
 
-<footer>
-  © 2025 SHOMEX SHOP — All Rights Reserved
-</footer>
+<footer>© 2025 SHOMEX SHOP — All Rights Reserved</footer>
+
+<!-- PACKAGE MODAL -->
+<div class="modal" id="packageModal">
+  <div class="modal-box">
+    <h2>📦 Subscription Packages</h2>
+
+    <ul>
+      <li>📅 1 Month — RM30</li>
+      <li>📅 3 Months — RM80</li>
+      <li>📅 6 Months — RM150</li>
+      <li>📅 12 Months — RM280</li>
+    </ul>
+
+    <button onclick="closePackage()">Close</button>
+  </div>
+</div>
+
+<!-- QR MODAL -->
+<div class="modal" id="qrModal">
+  <div class="modal-box">
+    <h2>📲 Scan QR to Pay</h2>
+    <img src="QRpay.jpg" class="qr-img">
+    <p>Name: <strong>Siti Suhada Binti Md Zain</strong></p>
+    <button onclick="closeQR()">Done</button>
+  </div>
+</div>
+
+<script>
+function openPackage() {
+  document.getElementById("packageModal").style.display = "flex";
+}
+function closePackage() {
+  document.getElementById("packageModal").style.display = "none";
+}
+function openQR() {
+  document.getElementById("qrModal").style.display = "flex";
+}
+function closeQR() {
+  document.getElementById("qrModal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
