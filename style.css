@@ -85,16 +85,22 @@ body {
   background: rgba(255,255,255,0.03);
 }
 
-/* FORCE SAME SIZE FOR <a> AND <button> */
+/* 🔒 FORCE IDENTICAL SIZE FOR ONLINE & QR PAY */
 .payment a.btn,
 .payment button.btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   max-width: 340px;
+  height: 56px;          /* FIXED HEIGHT */
   margin: 15px auto;
-  padding: 16px;
+
   font-size: 18px;
+  font-weight: bold;
   border-radius: 30px;
+
   box-shadow: 0 0 30px rgba(0,140,255,0.8);
 }
 
@@ -148,3 +154,4 @@ footer {
   pointer-events: none;
   user-select: none;
 }
+
