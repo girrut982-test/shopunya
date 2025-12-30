@@ -1,1 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0b1c2d, #020b14);
+  color: #9fd4ff;
+}
+
+/* BANNER */
+.banner img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+/* APP CARD */
+.app-card {
+  background: rgba(255,255,255,0.06);
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(0,140,255,0.3);
+  transition: 0.3s;
+}
+
+.app-card:hover {
+  transform: translateY(-8px);
+}
+
+.app-card img {
+  width: 100px;
+}
+
+/* BUTTON */
+.btn {
+  display: block;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #008cff, #4fc3ff);
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1px solid #4fc3ff;
+  color: #4fc3ff;
+}
+
+/* PAYMENT */
+.payment {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* HELP */
+.help {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.help-btn {
+  display: block;
+  max-width: 300px;
+  margin: 12px auto;
+  padding: 14px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-box {
+  background: #081a2c;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.modal-box ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.modal-box li {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-box button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #008cff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.qr-img {
+  width: 220px;
+  margin: 15px 0;
+}
 
