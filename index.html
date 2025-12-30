@@ -5,67 +5,92 @@
 <title>Shomex Premium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
-
-<!-- PDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
+<!-- BANNER -->
 <section class="banner">
-  <img src="KEDAI.png">
+  <img src="KEDAI.png" alt="Shomex Banner">
 </section>
 
+<!-- APPS -->
 <section class="container">
 
-<div class="app-card">
-  <img src="logo.png">
-  <h2>KINGTV</h2>
-  <a href="https://cutt.ly/king100" class="btn">Download 1</a>
-  <a href="https://tinyurl.com/kingtv22" class="btn outline">Download 2</a>
-  <button class="btn package-btn" onclick="openPackage('KINGTV')">📦 View Packages</button>
-</div>
+  <div class="app-card">
+    <img src="logo.png">
+    <h2>KINGTV</h2>
+    <p>Live TV, Movies & Sports</p>
 
-<div class="app-card">
-  <img src="logo2.png">
-  <h2>SYOKTV</h2>
-  <a href="https://cutt.ly/shosyok" class="btn">Download 1</a>
-  <a href="https://tinyurl.com/syoktv2" class="btn outline">Download 2</a>
-  <button class="btn package-btn" onclick="openPackage('SYOKTV')">📦 View Packages</button>
-</div>
+    <a href="https://cutt.ly/king100" class="btn">Download Link 1</a>
+    <a href="https://tinyurl.com/kingtv22" class="btn outline">Download Link 2</a>
+
+    <button class="btn package-btn" onclick="openPackage('KINGTV')">
+      📦 View Packages
+    </button>
+  </div>
+
+  <div class="app-card">
+    <img src="logo2.png">
+    <h2>SYOKTV</h2>
+    <p>Live TV, Movies & Sports</p>
+
+    <a href="https://cutt.ly/shosyok" class="btn">Download Link 1</a>
+    <a href="https://tinyurl.com/syoktv2" class="btn outline">Download Link 2</a>
+
+    <button class="btn package-btn" onclick="openPackage('SYOKTV')">
+      📦 View Packages
+    </button>
+  </div>
 
 </section>
 
+<!-- PAYMENT -->
 <section class="payment">
   <h2>Payment Method</h2>
-  <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Transfer</a>
-  <button class="btn buy-btn" onclick="openQR()">📱 QR Pay</button>
+
+  <a href="https://wasep.me/shomexshop" class="btn buy-btn">
+    💳 Online Transfer
+  </a>
+
+  <button class="btn buy-btn" onclick="openQR()">
+    📱 QR Pay
+  </button>
 </section>
 
-<footer>© 2025 SHOMEX SHOP</footer>
+<!-- FOOTER -->
+<footer>
+  © 2025 SHOMEX SHOP — All Rights Reserved
+</footer>
 
 <!-- PACKAGE MODAL -->
 <div class="modal" id="packageModal">
   <div class="modal-box">
-    <h2 id="appTitle"></h2>
-    <ul id="priceList"></ul>
-    <button onclick="closePackage()">Close</button>
+    <h3 id="packageTitle"></h3>
+    <div id="packageList"></div>
+    <button class="btn outline" onclick="closePackage()">Close</button>
   </div>
 </div>
 
 <!-- QR MODAL -->
 <div class="modal" id="qrModal">
   <div class="modal-box">
-    <h3>Scan QR</h3>
+    <h3>Scan QR to Pay</h3>
+
     <img src="QRpay.jpg" class="qr-img no-save" draggable="false">
 
-    <input type="file" id="proof" accept="image/*">
-    <button onclick="sendWhatsApp()">📲 Send Proof WhatsApp</button>
-    <button onclick="closeQR()">Done</button>
+    <p><strong>Upload Payment Proof</strong></p>
+    <input type="file" accept="image/*">
+
+    <button class="btn buy-btn" onclick="sendWhatsApp()">
+      📲 Send WhatsApp
+    </button>
+
+    <button class="btn outline" onclick="closeQR()">Close</button>
   </div>
 </div>
 
 <script>
-/* ADMIN PRICE JSON */
+/* ADMIN PRICE CONTROL */
 const prices = {
   KINGTV: [
     { months: 1, price: 30 },
@@ -78,66 +103,70 @@ const prices = {
   ]
 };
 
-let selected = {};
+let selectedApp = "";
+let selectedPackage = null;
 
-function openPackage(app){
-  selected.app = app;
-  document.getElementById("packageModal").style.display="flex";
-  document.getElementById("appTitle").innerText = app + " Packages";
-  const list = document.getElementById("priceList");
+function openPackage(app) {
+  selectedApp = app;
+  document.getElementById("packageModal").style.display = "flex";
+  document.getElementById("packageTitle").innerText = app + " Packages";
+
+  const list = document.getElementById("packageList");
   list.innerHTML = "";
 
-  prices[app].forEach(p=>{
+  prices[app].forEach(p => {
     const expiry = calcExpiry(p.months);
-    const li = document.createElement("li");
-    li.innerHTML = `
-      ${p.months} Month - RM${p.price}<br>
-      Expiry: ${expiry}<br>
+    const div = document.createElement("div");
+    div.className = "package-item";
+    div.innerHTML = `
+      <p>${p.months} Month — RM${p.price}</p>
+      <small>Expiry: ${expiry}</small>
       <button class="btn buy-btn"
-        onclick="selectPackage(${p.months},${p.price},'${expiry}')">
+        onclick="selectPackage(${p.months}, ${p.price}, '${expiry}')">
         Select
-      </button>`;
-    list.appendChild(li);
+      </button>
+    `;
+    list.appendChild(div);
   });
 }
 
-function selectPackage(m,p,e){
-  selected.months=m; selected.price=p; selected.expiry=e;
-  closePackage(); openQR();
+function selectPackage(m, price, expiry) {
+  selectedPackage = { m, price, expiry };
+  closePackage();
+  openQR();
 }
 
-function calcExpiry(months){
+function calcExpiry(months) {
   const d = new Date();
-  d.setMonth(d.getMonth()+months);
+  d.setMonth(d.getMonth() + months);
   return d.toLocaleDateString();
 }
 
-function openQR(){ document.getElementById("qrModal").style.display="flex"; }
-function closeQR(){ document.getElementById("qrModal").style.display="none"; }
-function closePackage(){ document.getElementById("packageModal").style.display="none"; }
+function sendWhatsApp() {
+  if (!selectedPackage) return alert("Please select package first");
 
-function sendWhatsApp(){
   const msg =
 `Hi, I have paid.
 
-App: ${selected.app}
-Package: ${selected.months} Month
-Price: RM${selected.price}
-Expiry: ${selected.expiry}`;
-  window.open("https://wa.me/601159635600?text="+encodeURIComponent(msg));
-  generateInvoice();
+App: ${selectedApp}
+Package: ${selectedPackage.m} Month
+Price: RM${selectedPackage.price}
+Expiry: ${selectedPackage.expiry}`;
+
+  window.open(
+    "https://wa.me/601159635600?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 
-/* PDF INVOICE */
-function generateInvoice(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.text("SHOMEX INVOICE",20,20);
-  doc.text(`App: ${selected.app}`,20,40);
-  doc.text(`Package: ${selected.months} Month`,20,50);
-  doc.text(`Price: RM${selected.price}`,20,60);
-  doc.text(`Expiry: ${selected.expiry}`,20,70);
-  doc.save("invoice.pdf");
+function openQR() {
+  document.getElementById("qrModal").style.display = "flex";
+}
+function closeQR() {
+  document.getElementById("qrModal").style.display = "none";
+}
+function closePackage() {
+  document.getElementById("packageModal").style.display = "none";
 }
 </script>
 
