@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-/* BODY */
 body {
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #0b1c2d, #020b14);
@@ -16,10 +15,9 @@ body {
   width: 100%;
   max-height: 360px;
   object-fit: cover;
-  display: block;
 }
 
-/* CONTAINER */
+/* APP GRID */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -47,60 +45,58 @@ body {
   color: #fff;
 }
 
-/* BUTTON BASE */
+.app-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* BUTTONS */
 .btn {
   display: block;
   width: 100%;
-  max-width: 340px;
-  margin: 12px auto;
-  padding: 16px;
+  padding: 14px;
+  margin: 10px 0;
   border-radius: 30px;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   background: linear-gradient(135deg, #008cff, #4fc3ff);
   color: #000;
+  text-align: center;
   border: none;
   cursor: pointer;
-  text-align: center;
 }
 
-/* OUTLINE BUTTON */
 .btn.outline {
   background: transparent;
   border: 1px solid #4fc3ff;
   color: #4fc3ff;
 }
 
-/* VIEW PACKAGE - RED */
+/* VIEW PACKAGE */
 .package-btn {
   background: linear-gradient(135deg, #ff3b3b, #ff7676);
   color: #fff;
-  box-shadow: 0 0 20px rgba(255,60,60,0.8);
 }
 
-/* PAYMENT SECTION */
+/* PAYMENT */
 .payment {
   text-align: center;
   padding: 70px 20px;
-  background: rgba(255,255,255,0.03);
 }
 
-/* FORCE SAME SIZE FOR ONLINE & QR PAY */
 .payment a.btn,
 .payment button.btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   max-width: 340px;
   height: 56px;
   margin: 15px auto;
   font-size: 18px;
-  border-radius: 30px;
   box-shadow: 0 0 30px rgba(0,140,255,0.8);
 }
 
-/* HELP SECTION */
+/* HELP */
 .help {
   text-align: center;
   padding: 60px 20px;
@@ -112,21 +108,13 @@ body {
   margin: 15px auto;
   padding: 16px;
   border-radius: 30px;
-  text-decoration: none;
   font-weight: bold;
   color: #fff;
-  box-shadow: 0 0 20px rgba(0,140,255,0.4);
+  text-decoration: none;
 }
 
-/* WHATSAPP BUTTON */
-.whatsapp {
-  background: #25d366;
-}
-
-/* TELEGRAM BUTTON */
-.telegram {
-  background: #0088cc;
-}
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
 
 /* FOOTER */
 footer {
@@ -134,7 +122,6 @@ footer {
   padding: 25px;
   font-size: 13px;
   color: #7bbcff;
-  border-top: 1px solid rgba(0,140,255,0.3);
 }
 
 /* MODAL */
@@ -145,7 +132,6 @@ footer {
   background: rgba(0,0,0,0.75);
   justify-content: center;
   align-items: center;
-  z-index: 99;
 }
 
 .modal-box {
@@ -157,24 +143,13 @@ footer {
   text-align: center;
 }
 
-.modal-box ul {
-  list-style: none;
-  margin: 20px 0;
-}
-
-.modal-box li {
-  padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-/* QR IMAGE */
-.qr-img {
-  width: 220px;
-  margin: 15px 0;
-}
-
-/* LOCK QR IMAGE */
+/* QR LOCK */
 .no-save {
   pointer-events: none;
   user-select: none;
+}
+
+.qr-img {
+  width: 220px;
+  margin: 15px 0;
 }
