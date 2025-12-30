@@ -1,87 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Shomex Premium</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Shomex Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
-<!-- BANNER -->
 <section class="banner">
-  <img src="KEDAI.png" alt="Shomex Shop Banner">
+  <img src="KEDAI.png">
 </section>
 
-<!-- APPS -->
 <section class="container">
 
-  <!-- KINGTV -->
-  <div class="app-card">
-    <img src="logo.png" alt="KINGTV">
-    <h2>KINGTV</h2>
-    <p>Live TV, Movies, Sports & More</p>
+<div class="app-card">
+  <img src="logo.png">
+  <h2>KINGTV</h2>
+  <a href="https://cutt.ly/king100" class="btn">Download 1</a>
+  <a href="https://tinyurl.com/kingtv22" class="btn outline">Download 2</a>
+  <button class="btn package-btn" onclick="openPackage('KINGTV')">📦 View Packages</button>
+</div>
 
-    <a href="https://cutt.ly/king100" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/kingtv22" class="btn outline">Download Link 2</a>
-
-    <button class="btn package-btn" onclick="openPackage('KINGTV')">📦 View Packages</button>
-  </div>
-
-  <!-- SYOKTV -->
-  <div class="app-card">
-    <img src="logo2.png" alt="SYOKTV">
-    <h2>SYOKTV</h2>
-    <p>Live TV, Movies, Sports & More</p>
-
-    <a href="https://cutt.ly/shosyok" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/syoktv2" class="btn outline">Download Link 2</a>
-
-    <button class="btn package-btn" onclick="openPackage('SYOKTV')">📦 View Packages</button>
-  </div>
-
-  <!-- SYBERTV -->
-  <div class="app-card">
-    <img src="logo3.png" alt="SYBERTV">
-    <h2>SYBERTV</h2>
-    <p>Live Channels, Movies & Sports</p>
-
-    <a href="https://bit.ly/syber482" class="btn">Download Link 1</a>
-    <a href="https://tinyurl.com/syber482" class="btn outline">Download Link 2</a>
-
-    <button class="btn package-btn" onclick="openPackage('SYBERTV')">📦 View Packages</button>
-  </div>
-
-  <!-- ODTV -->
-  <div class="app-card">
-    <img src="logo4.png" alt="ODTV">
-    <h2>ODTV</h2>
-    <p>Live Channels, Movies & Sports</p>
-
-    <a href="https://link2u.cc/odtv1" class="btn">Download Link 1</a>
-    <a href="https://link2u.cc/odtv1" class="btn outline">Download Link 2</a>
-
-    <button class="btn package-btn" onclick="openPackage('ODTV')">📦 View Packages</button>
-  </div>
+<div class="app-card">
+  <img src="logo2.png">
+  <h2>SYOKTV</h2>
+  <a href="https://cutt.ly/shosyok" class="btn">Download 1</a>
+  <a href="https://tinyurl.com/syoktv2" class="btn outline">Download 2</a>
+  <button class="btn package-btn" onclick="openPackage('SYOKTV')">📦 View Packages</button>
+</div>
 
 </section>
 
-<!-- PAYMENT -->
 <section class="payment">
   <h2>Payment Method</h2>
-
-  <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Payment</a>
+  <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Transfer</a>
   <button class="btn buy-btn" onclick="openQR()">📱 QR Pay</button>
 </section>
 
-<!-- HELP -->
-<section class="help">
-  <h2>Need Help?</h2>
-  <a href="https://wa.me/601159635600" class="help-btn whatsapp">📞 WhatsApp</a>
-  <a href="https://t.me/+pW4H2Dh8JuJkNTk1" class="help-btn telegram">💬 Telegram</a>
-</section>
-
-<footer>© 2025 SHOMEX SHOP — All Rights Reserved</footer>
+<footer>© 2025 SHOMEX SHOP</footer>
 
 <!-- PACKAGE MODAL -->
 <div class="modal" id="packageModal">
@@ -95,65 +55,89 @@
 <!-- QR MODAL -->
 <div class="modal" id="qrModal">
   <div class="modal-box">
-    <h2>📲 Scan QR to Pay</h2>
-    <img src="QRpay.png" class="qr-img no-save" draggable="false">
-    <p><strong>Siti Suhada Binti Md Zain</strong></p>
+    <h3>Scan QR</h3>
+    <img src="QRpay.jpg" class="qr-img no-save" draggable="false">
+
+    <input type="file" id="proof" accept="image/*">
+    <button onclick="sendWhatsApp()">📲 Send Proof WhatsApp</button>
     <button onclick="closeQR()">Done</button>
   </div>
 </div>
 
 <script>
+/* ADMIN PRICE JSON */
 const prices = {
   KINGTV: [
-    { name: "1 Month", price: "RM30" },
-    { name: "3 Months", price: "RM80" },
-    { name: "6 Months", price: "RM150" }
+    { months: 1, price: 30 },
+    { months: 3, price: 80 },
+    { months: 6, price: 150 }
   ],
   SYOKTV: [
-    { name: "1 Month", price: "RM28" },
-    { name: "3 Months", price: "RM75" },
-    { name: "6 Months", price: "RM140" }
-  ],
-  SYBERTV: [
-    { name: "1 Month", price: "RM35" },
-    { name: "3 Months", price: "RM95" },
-    { name: "12 Months", price: "RM300" }
-  ],
-  ODTV: [
-    { name: "1 Month", price: "RM25" },
-    { name: "6 Months", price: "RM130" },
-    { name: "12 Months", price: "RM250" }
+    { months: 1, price: 28 },
+    { months: 3, price: 75 }
   ]
 };
 
-function openPackage(app) {
-  document.getElementById("packageModal").style.display = "flex";
-  document.getElementById("appTitle").innerText = app + " Packages";
+let selected = {};
 
+function openPackage(app){
+  selected.app = app;
+  document.getElementById("packageModal").style.display="flex";
+  document.getElementById("appTitle").innerText = app + " Packages";
   const list = document.getElementById("priceList");
   list.innerHTML = "";
 
-  prices[app].forEach(pkg => {
-    const msg = `Hi, I paid ${pkg.price} for ${pkg.name} ${app}`;
-    const wa = `https://wa.me/601159635600?text=${encodeURIComponent(msg)}`;
-
+  prices[app].forEach(p=>{
+    const expiry = calcExpiry(p.months);
     const li = document.createElement("li");
     li.innerHTML = `
-      ${pkg.name} — <strong>${pkg.price}</strong><br>
-      <a href="${wa}" class="btn buy-btn">📲 I Paid – WhatsApp</a>
-    `;
+      ${p.months} Month - RM${p.price}<br>
+      Expiry: ${expiry}<br>
+      <button class="btn buy-btn"
+        onclick="selectPackage(${p.months},${p.price},'${expiry}')">
+        Select
+      </button>`;
     list.appendChild(li);
   });
 }
 
-function closePackage() {
-  document.getElementById("packageModal").style.display = "none";
+function selectPackage(m,p,e){
+  selected.months=m; selected.price=p; selected.expiry=e;
+  closePackage(); openQR();
 }
-function openQR() {
-  document.getElementById("qrModal").style.display = "flex";
+
+function calcExpiry(months){
+  const d = new Date();
+  d.setMonth(d.getMonth()+months);
+  return d.toLocaleDateString();
 }
-function closeQR() {
-  document.getElementById("qrModal").style.display = "none";
+
+function openQR(){ document.getElementById("qrModal").style.display="flex"; }
+function closeQR(){ document.getElementById("qrModal").style.display="none"; }
+function closePackage(){ document.getElementById("packageModal").style.display="none"; }
+
+function sendWhatsApp(){
+  const msg =
+`Hi, I have paid.
+
+App: ${selected.app}
+Package: ${selected.months} Month
+Price: RM${selected.price}
+Expiry: ${selected.expiry}`;
+  window.open("https://wa.me/601159635600?text="+encodeURIComponent(msg));
+  generateInvoice();
+}
+
+/* PDF INVOICE */
+function generateInvoice(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.text("SHOMEX INVOICE",20,20);
+  doc.text(`App: ${selected.app}`,20,40);
+  doc.text(`Package: ${selected.months} Month`,20,50);
+  doc.text(`Price: RM${selected.price}`,20,60);
+  doc.text(`Expiry: ${selected.expiry}`,20,70);
+  doc.save("invoice.pdf");
 }
 </script>
 
