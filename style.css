@@ -13,46 +13,50 @@ body {
 /* BANNER */
 .banner img {
   width: 100%;
-  max-height: 340px;
+  max-height: 360px;
   object-fit: cover;
+  display: block;
 }
 
 /* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 50px 20px;
+  padding: 60px 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
 
-/* CARD */
+/* APP CARD */
 .app-card {
   background: rgba(255,255,255,0.06);
   border-radius: 18px;
   padding: 30px;
   text-align: center;
+  box-shadow: 0 0 35px rgba(0,140,255,0.3);
 }
 
 .app-card img {
-  width: 100px;
-  margin-bottom: 10px;
+  width: 110px;
+  margin-bottom: 15px;
+}
+
+.app-card h2 {
+  color: #fff;
 }
 
 /* BUTTON */
 .btn {
   display: block;
-  width: 100%;
   margin: 10px 0;
   padding: 14px;
   border-radius: 30px;
-  font-weight: bold;
   text-decoration: none;
-  cursor: pointer;
+  font-weight: bold;
   background: linear-gradient(135deg, #008cff, #4fc3ff);
   color: #000;
-  border: none;
+  cursor: pointer;
 }
 
 .btn.outline {
@@ -61,26 +65,48 @@ body {
   color: #4fc3ff;
 }
 
-/* RED PACKAGE BUTTON */
+/* VIEW PACKAGE - RED */
 .package-btn {
   background: linear-gradient(135deg, #ff3b3b, #ff7676);
   color: #fff;
+  box-shadow: 0 0 20px rgba(255,60,60,0.8);
 }
 
 /* PAYMENT */
 .payment {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .buy-btn {
   font-size: 18px;
+  box-shadow: 0 0 30px rgba(0,140,255,0.8);
 }
+
+/* HELP */
+.help {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.help-btn {
+  display: block;
+  max-width: 340px;
+  margin: 15px auto;
+  padding: 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   font-size: 13px;
   color: #7bbcff;
 }
@@ -90,7 +116,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
   justify-content: center;
   align-items: center;
   z-index: 99;
@@ -98,17 +124,21 @@ footer {
 
 .modal-box {
   background: #081a2c;
-  padding: 25px;
+  padding: 30px;
   border-radius: 16px;
   width: 90%;
   max-width: 360px;
   text-align: center;
 }
 
-.package-item {
-  margin: 15px 0;
+.modal-box ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.modal-box li {
   padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /* QR LOCK */
