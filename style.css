@@ -10,15 +10,12 @@ body {
   color: #9fd4ff;
 }
 
-/* BANNER */
 .banner img {
   width: 100%;
   max-height: 360px;
   object-fit: cover;
-  display: block;
 }
 
-/* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -28,13 +25,11 @@ body {
   gap: 30px;
 }
 
-/* APP CARD */
 .app-card {
   background: rgba(255,255,255,0.06);
   border-radius: 18px;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 0 35px rgba(0,140,255,0.3);
 }
 
 .app-card img {
@@ -42,11 +37,6 @@ body {
   margin-bottom: 15px;
 }
 
-.app-card h2 {
-  color: #fff;
-}
-
-/* BUTTON */
 .btn {
   display: block;
   margin: 10px 0;
@@ -56,6 +46,7 @@ body {
   font-weight: bold;
   background: linear-gradient(135deg, #008cff, #4fc3ff);
   color: #000;
+  border: none;
   cursor: pointer;
 }
 
@@ -65,53 +56,26 @@ body {
   color: #4fc3ff;
 }
 
-/* VIEW PACKAGE - RED */
 .package-btn {
   background: linear-gradient(135deg, #ff3b3b, #ff7676);
   color: #fff;
-  box-shadow: 0 0 20px rgba(255,60,60,0.8);
 }
 
-/* PAYMENT */
 .payment {
-  text-align: center;
-  padding: 70px 20px;
-}
-
-.buy-btn {
-  font-size: 18px;
-  box-shadow: 0 0 30px rgba(0,140,255,0.8);
-}
-
-/* HELP */
-.help {
   text-align: center;
   padding: 60px 20px;
 }
 
-.help-btn {
-  display: block;
-  max-width: 340px;
-  margin: 15px auto;
-  padding: 16px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
+.buy-btn {
+  font-size: 18px;
 }
 
-.whatsapp { background: #25d366; }
-.telegram { background: #0088cc; }
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
   font-size: 13px;
-  color: #7bbcff;
 }
 
-/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -119,32 +83,22 @@ footer {
   background: rgba(0,0,0,0.75);
   justify-content: center;
   align-items: center;
-  z-index: 99;
 }
 
 .modal-box {
   background: #081a2c;
-  padding: 30px;
+  padding: 25px;
   border-radius: 16px;
   width: 90%;
   max-width: 360px;
-  text-align: center;
 }
 
 .modal-box ul {
   list-style: none;
-  margin: 20px 0;
 }
 
 .modal-box li {
-  padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-/* QR LOCK */
-.no-save {
-  pointer-events: none;
-  user-select: none;
+  margin-bottom: 15px;
 }
 
 .qr-img {
@@ -152,3 +106,7 @@ footer {
   margin: 15px 0;
 }
 
+.no-save {
+  pointer-events: none;
+  user-select: none;
+}
