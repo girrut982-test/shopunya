@@ -16,51 +16,39 @@
 <!-- APPS -->
 <section class="container">
 
-  <!-- KINGTV -->
   <div class="app-card">
-    <img src="logo.png" alt="KINGTV">
+    <img src="logo.png">
     <h2>KINGTV</h2>
     <p>Live TV, Movies, Sports & More</p>
-
     <a href="https://cutt.ly/king100" class="btn">Download Link 1</a>
     <a href="https://tinyurl.com/kingtv22" class="btn outline">Download Link 2</a>
-
     <button class="btn package-btn" onclick="openPackage('KINGTV')">📦 View Packages</button>
   </div>
 
-  <!-- SYOKTV -->
   <div class="app-card">
-    <img src="logo2.png" alt="SYOKTV">
+    <img src="logo2.png">
     <h2>SYOKTV</h2>
     <p>Live TV, Movies, Sports & More</p>
-
     <a href="https://cutt.ly/shosyok" class="btn">Download Link 1</a>
     <a href="https://tinyurl.com/syoktv2" class="btn outline">Download Link 2</a>
-
     <button class="btn package-btn" onclick="openPackage('SYOKTV')">📦 View Packages</button>
   </div>
 
-  <!-- SYBERTV -->
   <div class="app-card">
-    <img src="logo3.png" alt="SYBERTV">
+    <img src="logo3.png">
     <h2>SYBERTV</h2>
     <p>Live Channels, Movies & Sports</p>
-
     <a href="https://bit.ly/syber482" class="btn">Download Link 1</a>
     <a href="https://tinyurl.com/syber482" class="btn outline">Download Link 2</a>
-
     <button class="btn package-btn" onclick="openPackage('SYBERTV')">📦 View Packages</button>
   </div>
 
-  <!-- ODTV -->
   <div class="app-card">
-    <img src="logo4.png" alt="ODTV">
+    <img src="logo4.png">
     <h2>ODTV</h2>
     <p>Live Channels, Movies & Sports</p>
-
     <a href="https://link2u.cc/odtv1" class="btn">Download Link 1</a>
     <a href="https://link2u.cc/odtv1" class="btn outline">Download Link 2</a>
-
     <button class="btn package-btn" onclick="openPackage('ODTV')">📦 View Packages</button>
   </div>
 
@@ -69,37 +57,28 @@
 <!-- PAYMENT -->
 <section class="payment">
   <h2>Payment Method</h2>
-
   <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Payment</a>
-  <a href="https://wasep.me/shomexshop" class="btn buy-btn">💳 Online Payment</b>
-  <a href="btn buy-btn" onclick="openQR()">📱 QR Pay</button>
+  <button class="btn buy-btn" onclick="openQR()">📱 QR Pay</button>
 </section>
 
-<!-- HELP -->
-<section class="help">
-  <h2>Need Help?</h2>
-  <a href="https://wa.me/601159635600" class="help-btn whatsapp">📞 WhatsApp</a>
-  <a href="https://t.me/+pW4H2Dh8JuJkNTk1" class="help-btn telegram">💬 Telegram</a>
-</section>
-
-<footer>© 2025 SHOMEX SHOP — All Rights Reserved</footer>
+<footer>© 2025 SHOMEX SHOP</footer>
 
 <!-- PACKAGE MODAL -->
 <div class="modal" id="packageModal">
   <div class="modal-box">
     <h2 id="appTitle"></h2>
     <ul id="priceList"></ul>
-    <button onclick="closePackage()">Close</button>
+    <button class="btn" onclick="closePackage()">Close</button>
   </div>
 </div>
 
 <!-- QR MODAL -->
 <div class="modal" id="qrModal">
   <div class="modal-box">
-    <h2>📲 Scan QR to Pay</h2>
+    <h2>Scan QR to Pay</h2>
     <img src="QRpay.jpg" class="qr-img no-save" draggable="false">
     <p><strong>Siti Suhada Binti Md Zain</strong></p>
-    <button onclick="closeQR()">Done</button>
+    <button class="btn" onclick="closeQR()">Done</button>
   </div>
 </div>
 
@@ -109,7 +88,7 @@ const prices = {
     { name: "1 Month", price: "RM15" },
     { name: "3 Months", price: "RM38" },
     { name: "6 Months", price: "RM70" },
-    { name: "1 Years", price: "RM110" },
+    { name: "1 Year", price: "RM110" },
     { name: "4 Years", price: "RM300" }
   ],
   SYOKTV: [
@@ -123,14 +102,14 @@ const prices = {
   SYBERTV: [
     { name: "33 Days", price: "RM14" },
     { name: "100 Days", price: "RM38" },
-    { name: "200 Days", price: "RM70" }
-    { name: "400 Days", price: "RM115" }
-    { name: "800 Days", price: "RM175" }
+    { name: "200 Days", price: "RM70" },
+    { name: "400 Days", price: "RM115" },
+    { name: "800 Days", price: "RM175" },
     { name: "3 Years", price: "RM230" }
   ],
   ODTV: [
-    { name: "1 Month", price: "RM13" }, 
-    { name: "3 Month", price: "RM34" }
+    { name: "1 Month", price: "RM13" },
+    { name: "3 Months", price: "RM34" },
     { name: "6 Months", price: "RM65" },
     { name: "12 Months", price: "RM110" }
   ]
@@ -139,20 +118,16 @@ const prices = {
 function openPackage(app) {
   document.getElementById("packageModal").style.display = "flex";
   document.getElementById("appTitle").innerText = app + " Packages";
-
   const list = document.getElementById("priceList");
   list.innerHTML = "";
 
-  prices[app].forEach(pkg => {
-    const msg = `Hi, I paid ${pkg.price} for ${pkg.name} ${app}`;
+  prices[app].forEach(p => {
+    const msg = `Hi, I paid ${p.price} for ${p.name} ${app}`;
     const wa = `https://wa.me/601159635600?text=${encodeURIComponent(msg)}`;
-
-    const li = document.createElement("li");
-    li.innerHTML = `
-      ${pkg.name} — <strong>${pkg.price}</strong><br>
-      <a href="${wa}" class="btn buy-btn">📲 I Paid – WhatsApp</a>
+    list.innerHTML += `
+      <li>${p.name} - <b>${p.price}</b>
+      <a href="${wa}" class="btn buy-btn">WhatsApp</a></li>
     `;
-    list.appendChild(li);
   });
 }
 
